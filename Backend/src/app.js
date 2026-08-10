@@ -7,8 +7,20 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://interview-ai-yt-new.vercel.app",
+    "https://interview-ai-yt-ptqxwarjp-ashrafuzzaman1973s-projects.vercel.app/login",
+]
+
 app.use(cors({
-    origin: "https://interview-ai-yt-new.vercel.app",
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not allowed by CORS"))
+        }
+    },
     credentials: true
 }))
 
