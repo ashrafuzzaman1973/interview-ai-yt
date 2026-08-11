@@ -11,6 +11,7 @@ const allowedOrigins = [
     "http://localhost:5173",
     "https://interview-ai-yt-new.vercel.app",
     "https://interview-ai-yt-ptqxwarjp-ashrafuzzaman1973s-projects.vercel.app/login",
+    "https://interview-ai-yt-alpha.vercel.app/login"
 ]
 
 app.use(cors({
